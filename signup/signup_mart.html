@@ -91,8 +91,8 @@ function press(f){ if(f.keyCode == 13){ formname.submit(); } }
 
 			</div>
 			<div class="row">
-				<div class="col-sm-2"></div>
-				<div class="col-sm-8 div-wrap-f inner-flow-f">
+				<div id="s1" class="col-sm-2"></div>
+				<div id="s2" class="col-sm-8 div-wrap-f inner-flow-f">
 					  <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
 					      <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.</p>
 						      <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
@@ -271,6 +271,9 @@ $(".signup-mart").on("click", function(){
 });
 
 $("#agr-btn").on("click", function(){
+	$("#s1").attr("class","col-sm-3");
+	$("#s2").attr("class","col-sm-6 div-wrap-f inner-flow-f");
+
 	$("#agr").removeAttr("class");
 	$("#agr-btn").text("확인");
 	$("#agr-btn").css("width", "150px");
@@ -318,10 +321,10 @@ $("#agr-btn").on("click", function(){
 	strVar += "                        <div class=\"hint\"><small>EX : 911019<\/small><\/div>";
 	strVar += "                    <\/div>";
 	strVar += "                    <div class=\"form-wrap-f\">";
-	strVar += "                        <div class=\"hp\" style=\"float:left\">";
+	strVar += "                        <div class=\"hp\" style=\"float:left; width:100px\">";
 	strVar += "                            <input type=\"radio\" class=\"rad\" name=\"radioSex\" id=\"sex\" value=\"female\"> 여성";
 	strVar += "                            <\/div>";
-	strVar += "                            <div class=\"hp\" style=\"float:left\">";
+	strVar += "                            <div class=\"hp\" style=\"float:left; width:100px\">";
 	strVar += "                            <input type=\"radio\" class=\"rad\" name=\"radioSex\" id=\"sex\" value=\"male\"> 남성";
 	strVar += "                            <\/div>";
 	strVar += "                    <\/div>";
@@ -329,7 +332,8 @@ $("#agr-btn").on("click", function(){
 	strVar += "                        <div class=\"bloc\">";
 	strVar += "                        <input type=\"text\" class=\"form-f\" maxlength=\"40\" placeholder=\"주소를 검색해주세요\">";
 	strVar += "                        <\/div>";
-	strVar += "                        <div class=\"hint\"><small>뀨?<\/small><\/div>";
+	strVar += "                        <div class=\"hint\" style=\"width:30%\"><small>뀨?<\/small><\/div>";
+	    strVar += "                        <a href class=\"btn btn-default\" style=\"padding 10px; display:unset; float: right; height: 50px; border: 0; border-bottom: 1px solid #ccc; line-height:38px; padding-left:40px; padding-right:40px; color:#999\">주소 검색<\/a>";
 	strVar += "                    <\/div>";
 	strVar += "                    <div class=\"form-wrap-f\">";
 	strVar += "                        <div class=\"bloc\">";
