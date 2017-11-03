@@ -1,0 +1,309 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="./favicon.ico"> <!-- 파비콘 경로-->
+
+<title>장볼래</title>
+
+<!-- Bootstrap core CSS -->
+<!-- bootstrap 4.x is supported. You can also use the bootstrap css 3.3.x versions -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
+<!-- if using RTL (Right-To-Left) orientation, load the RTL CSS file after fileinput.css by uncommenting below -->
+<!-- link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/css/fileinput-rtl.min.css" media="all" rel="stylesheet" type="text/css" /-->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<!-- piexif.min.js is only needed for restoring exif data in resized images and when you 
+    wish to resize images before upload. This must be loaded before fileinput.min.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/js/plugins/piexif.min.js" type="text/javascript"></script>
+<!-- sortable.min.js is only needed if you wish to sort / rearrange files in initial preview. 
+    This must be loaded before fileinput.min.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/js/plugins/sortable.min.js" type="text/javascript"></script>
+<!-- purify.min.js is only needed if you wish to purify HTML content in your preview for 
+    HTML files. This must be loaded before fileinput.min.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/js/plugins/purify.min.js" type="text/javascript"></script>
+<!-- popper.min.js below is needed if you use bootstrap 4.x. You can also use the bootstrap js 
+   3.3.x versions without popper.min.js. -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<!-- bootstrap.min.js below is needed if you wish to zoom and preview file content in a detail modal
+    dialog. bootstrap 4.x is supported. You can also use the bootstrap js 3.3.x versions. -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" type="text/javascript"></script>
+<!-- the main fileinput plugin file -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/js/fileinput.min.js"></script>
+<!-- optionally if you need a theme like font awesome theme you can include it as mentioned below -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/themes/fa/theme.js"></script>
+<!-- optionally if you need translation for your language then include  locale file as mentioned below -->
+<!-- Custom styles for this template -->
+<link href="../static/css/navbar-fixed-top.css" rel="stylesheet">
+
+<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+<script src="../assets/js/ie-emulation-modes-warning.js"></script>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+																	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+																			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+																				<![endif]-->
+<script>
+function press(f){ if(f.keyCode == 13){ formname.submit(); } }
+</script>
+
+</head>
+<body>
+
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top" id="navMart">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">장볼래</a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">동네마트</a></li>
+				<li><a href="#">대형마트</a></li>
+			</ul>
+			<ul class="usernav-default navbar-default navbar-right">
+				<li><a href="#" class="" data-toggle="modal" data-target="#martSignup">회원가입</a></li>
+				<li><a href="#" class="" data-toggle="modal" data-target="#martLogin">로그인</a></li>
+				<li class="active"><a href="#">AD<span class="sr-only">(current)</span></a></li>
+			</ul>
+			<form class="usernav-search navbar-form navbar-right">
+				<div class="form-group">
+					<input type="text" placeholder="검색" class="form-control">
+				</div>
+				<button type="submit" class="btn btn-success">검색</button>
+			</form>
+
+		</div><!--/.nav-collapse -->
+	</div>
+</nav>
+
+<!-- container -->
+<div class="bgc">
+	<div class="container">
+		<div class="top-padding"></div>
+		<div class="top-padding"></div>
+		<div class="top-padding"></div>
+		<div class="row">
+			<label for="input-24">Planets and Satellites</label>
+			<div class="file-loading">
+				<input id="input-24" name="input24[]" type="file" multiple>
+			</div>
+			<script>
+$(document).on('ready', function() {
+		var url1 = 'http://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/631px-FullMoon2010.jpg',
+		url2 = 'http://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Earth_Eastern_Hemisphere.jpg/600px-Earth_Eastern_Hemisphere.jpg';
+		$("#input-24").fileinput({
+initialPreview: [url1, url2],
+initialPreviewAsData: true,
+initialPreviewConfig: [
+{caption: "Moon.jpg", downloadUrl: url1, size: 930321, width: "120px", key: 1},
+{caption: "Earth.jpg", downloadUrl: url2, size: 1218822, width: "120px", key: 2}
+],
+deleteUrl: "/site/file-delete",
+overwriteInitial: false,
+maxFileSize: 100,
+initialCaption: "The Moon and the Earth"
+});
+		});
+			</script>
+		</div>
+		<div class="top-padding"></div>
+		<div class="top-padding"></div>
+		<div class="top-padding"></div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+	<footer>
+		<p>© Company 2014</p>
+	</footer>
+</div>
+</div>
+
+<div class="modal fade" id="martSignup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div role="tabpanel">
+				<!-- Nav tabs -->
+				<div class="top-padding"></div>
+				<div class="col-sm-4"></div>
+				<ul class="nav nav-tabs" role="tablist">
+					<li role="presentation" class="active"><a href="" class="signup-person" aria-controls="mart-p" role="tab" data-toggle="tab">개인회원</a></li>
+					<li role="presentation"><a href="" class="signup-mart" aria-controls="mart-g" role="tab" data-toggle="tab">마트회원</a></li>
+				</ul>
+			</div>
+			<div class="top-padding"></div>
+			<div class="row">
+					<h4 class="text-center"><b>장볼래에 오신 것을 환영합니다!</b></h4>
+			</div>
+			<div class="top-padding"></div>
+			<div class="row">
+					<p class="text-center">
+					지금 회원가입 하셔서 
+					</p>
+					<p class="text-center">
+					우리 마트와 전단을 홍보해보세요!
+					</p>
+			</div>
+			<div class="top-padding"></div>
+			<div class="row">
+				<p class="text-center">
+				    <a href="개인회원가입 URL" class="btn btn-success btn-lg" id="martSignup-link">회원가입</a>
+					</p>
+			</div>
+			<div class="top-padding"></div>
+			<div class="top-padding"></div>
+			<div class="row">
+				<div class="col-sm-2"></div>
+				<div class="col-sm-1">
+					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>	<!-- 이미지 혹은 glyphicon -->
+				</div>
+				<div class="col-sm-7">
+					<p>이 공간은 마트 사업자 회원을 위한 가입공간입니다</p>
+					<p>개인 회원께서는 개인 회원 탭을눌러주세요</p>
+				</div>
+			</div>
+
+			<div class="top-padding"></div>
+			<div class="top-padding bottom-line"></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="modal fade" id="martLogin" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+				<div role="tabpanel">
+					<!-- Nav tabs -->
+					<div class="top-padding"></div>
+						<div class="col-sm-4"></div>
+					<ul class="nav nav-tabs" role="tablist">
+						<li role="presentation" class="active"><a href="" class="login-person" aria-controls="mart-p" role="tab" data-toggle="tab">개인회원</a></li>
+						<li role="presentation"><a href="" class="login-mart" aria-controls="mart-g" role="tab" data-toggle="tab">마트회원</a></li>
+					</ul>
+			</div>
+			<div class="top-padding"></div>	
+			<div class="top-padding"></div>	
+			<form class="form-horizontal" id="loginTab" action=""> <!-- 로그인 경로-->
+				<div class="form-group">
+					<div class="col-sm-3"></div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="inputId" placeholder="아이디">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-3"></div>
+					<div class="col-sm-6">
+						<input type="password" class="form-control" id="inputPw" placeholder="비밀번호">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-3"></div>
+					<div class="col-sm-8">
+						<div class="checkbox">
+							<label>
+								<input type="checkbox"> 자동로그인
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="top-padding"></div>
+				<div class="form-group">
+					<div class="col-sm-5"></div>
+					<div class="col-sm-7">
+						<button type="submit" class="btn btn-success">로그인</button>
+					</div>
+				</div>
+			</form>
+			<div class="top-padding"></div>
+			<div class="modal-container user-list bottom-line">
+				<div class="col-sm-4"></div>
+				<ul>
+					<li><a href="">회원가입</a></li>
+					<li><a href="">아이디 찾기</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Bootstrap core JavaScript ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="../dist/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+<script>
+$(".martFrm-01").on("click", function(){
+		$(".martFrm").attr("action", "1");
+		$(".martFrm-01").attr("class", "martFrm-01 active");
+		});
+
+$(".martFrm-02").on("click", function(){
+		$(".martFrm").attr("action", "2");
+		$(".martFrm-02").attr("class", "martFrm-02 active");
+		});
+$(".login-person").on("click", function(){
+		$("#martLogin").attr("action", "개인로그인 URL");
+});
+$(".login-mart").on("click", function(){
+		$("#martLogin").attr("action", "마트로그인 URL");
+});
+$(".signup-person").on("click", function(){
+		$("#martSignup-link").attr("href", "개인회원가입 URL");
+});
+$(".signup-mart").on("click", function(){
+		$("#martSignup-link").attr("href", "마트회원가입 URL");
+});
+
+//http://greatps1215.tistory.com/5
+
+var sel_file;
+var one = 1;
+var two = 2;
+var thr = 3;
+$(document).ready(function(){
+		$("#inputMartImg1").on("change",{paramNum:one}, hangleImgFileSelect);
+		$("#inputMartImg2").on("change",{paramNum:two}, hangleImgFileSelect);
+		$("#inputMartImg3").on("change",{paramNum:thr}, hangleImgFileSelect);
+		});
+
+function hangleImgFileSelect(e){
+	var files = e.target.files;
+	var filesArr = Array.prototype.slice.call(files);
+
+	filesArr.forEach(function(f){
+				if(!f.type.match("image.*")){
+					alert("이미지만 업로드 가능합니다");
+					return;
+				}
+				sel_file = f;
+
+				var reader = new FileReader();
+				reader.onload = function(e){
+					$("#inputMartImg1-pre").attr("src", e.target.result);
+					}
+					reader.readAsDataURL(f);
+				
+			});
+}
+</script>
+
+
+</body>
+</html>
