@@ -82,7 +82,11 @@ function press(f){ if(f.keyCode == 13){ formname.submit(); } }
 				</ul>
 			</div>
 			<form class="martFrm" action="1">
-				<input class="form-control input-lg" id="inputSuccess1" type="text" placeholder="검색" onkeypress="JavaScript:press(this.form)">
+				<!--input class="form-control input-lg" id="inputSuccess1" type="text" placeholder="검색" onkeypress="JavaScript:press(this.form)"-->
+				<div class="input-group">
+					  <input type="text" class="form-control input-lg" placeholder="검색" aria-describedby="addon" style="border-right: 0px" onkeypress="JavaScript:press(this.form)">
+					    <span class="input-group-addon glyphicon glyphicon-search" id="addon" style="line-height: 0;background-color: white;border-left: 0;top: 0px;"></span>
+					</div>
 			</form>
 		</div>
 	</div>
