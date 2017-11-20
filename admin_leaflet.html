@@ -33,6 +33,15 @@ integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
 function press(f){ if(f.keyCode == 13){ formname.submit(); } }
 </script>
 
+<!-- CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/zoomove/1.2.1/zoomove.min.css">
+
+<!-- JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zoomove/1.2.1/zoomove.min.js"></script>
+
+<script src="https://timmywil.github.io/jquery.panzoom/test/libs/jquery.mousewheel.js"></script>
+<script src="https://timmywil.github.io/jquery.panzoom/dist/jquery.panzoom.js"></script>
+
 </head>
 <body>
 
@@ -102,7 +111,7 @@ function press(f){ if(f.keyCode == 13){ formname.submit(); } }
 		<div class="row">
 			<div class="col-sm-3"></div>
 			<div class="col-sm-6">
-				<div>
+				<div id="fully">
 					<img src="http://www.seattlekcr.com/Pics/Art/%EB%A7%88%ED%8A%B8.jpg" id="midimg" class="landimg" data-toggle="modal" data-target="#fullimg">
 				</div>
 			</div>
@@ -145,9 +154,9 @@ function press(f){ if(f.keyCode == 13){ formname.submit(); } }
 </div>
 
 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="fullimg">
-	<div class="modal-dialog modal-lg">
+	<div class="modal-dialog modal-lg" style="width:88%">
 		<div class="modal-content">
-			<img src="" class="fullimg-wrapper">
+			<img src="" class="fullimg-wrapper zoom">
 		</div>
 	</div>
 </div>
@@ -307,6 +316,15 @@ $("#midimg").on("click", function(){
 		var imgval = $("#midimg").attr("src");
 		$(".fullimg-wrapper").attr("src", imgval);
 		});
+</script>
+
+<script>
+	$(".landimg").mouseover(function(){
+			
+			}).mouseout(function(){
+				
+			});
+
 </script>
 
 </body>

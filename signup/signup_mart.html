@@ -136,8 +136,7 @@ function press(f){ if(f.keyCode == 13){ formname.submit(); } }
 		</div>
 		<div class="top-padding"></div>
 		<div class="row">
-			<div class="col-sm-4"></div>
-			<div class="col-sm-8">
+			<div class="text-center">
 		<a class="btn btn-default btn-lg mg-r" href="#" role="button">처음으로</a>
 		<a class="btn btn-success btn-lg" href="#" id="agr-btn" role="button">동의하고 회원가입</a>
 		</div>
@@ -293,84 +292,6 @@ $(".signup-mart").on("click", function(){
 		$("#martSignup-link").attr("href", "마트회원가입 URL");
 });
 
-$("#agr-btn").on("click", function(){
-	$("#s1").attr("class","col-sm-3");
-	$("#s2").attr("class","col-sm-6 div-wrap-f inner-flow-f");
-
-	$("#agr").removeAttr("class");
-	$(".div-wrap-f").removeAttr("style");
-	$("#agr-btn").text("확인");
-	$("#agr-btn").css("width", "150px");
-	$("#agr-btn").attr("onclick", "document.forms['signup-form'].submit();return false;");
-	$("#agr-btn").attr("id", "inf-btn");
-	$("#inf").attr("class", "sign-active");
-	var strVar="";
-	strVar += "<form action=\"\/testbooom.html\" method=\"POST\" id=\"signup-form\">";
-	strVar += "                    <div class=\"form-wrap-f\">";
-	strVar += "                        <div class=\"bloc\">";
-	strVar += "                        <input type=\"text\" class=\"form-f\" maxlength=\"10\" placeholder=\"ID를 만들어 주세요\">";
-	strVar += "                        <\/div>";
-	strVar += "                        <div class=\"hint\"><small>띄어쓰기 없이 영뮨\/숫자 6-10자<\/small><\/div>";
-	strVar += "                    <\/div>";
-	strVar += "                    <div class=\"form-wrap-f\">";
-	strVar += "                        <div class=\"bloc\">";
-	strVar += "                        <input type=\"password\" class=\"form-f\" maxlength=\"15\" placeholder=\"비밀번호 입력해주세요\">";
-	strVar += "                    <\/div>";
-	strVar += "                        <div class=\"hint\"><small>띄어쓰기 없이 영문\/숫자 및 특수문자 6-15자<\/small><\/div>";
-	strVar += "                    <\/div>";
-	strVar += "                    <div class=\"form-wrap-f\">";
-	strVar += "                        <div class=\"bloc\">";
-	strVar += "                        <input type=\"password\" class=\"form-f\" maxlength=\"15\" placeholder=\"위의 비밀번호를 다시 입력해주세요  \">";
-	strVar += "                        <\/div>";
-	strVar += "                        <div class=\"hint\"><small class=\"text-right\"><\/small><\/div>";
-	strVar += "                    <\/div>";
-	strVar += "                    <div class=\"form-wrap-f\">";
-	strVar += "                        <div class=\"bloc\">";
-	strVar += "                        <input type=\"text\" class=\"form-f\" maxlength=\"10\" placeholder=\"이름을 입력해주세요\">";
-	strVar += "                        <\/div>";
-	strVar += "                        <div class=\"hint\"><small><\/small><\/div>";
-	strVar += "                    <\/div>";
-	strVar += "                    <div class=\"form-wrap-f\">";
-	strVar += "                        <select class=\"hp\">";
-	strVar += "                            <option value=\"010\">010<\/option>";
-	strVar += "                            <option value=\"011\">011<\/option>";
-	strVar += "                            <option value=\"112\">010<\/option>";
-	strVar += "                        <\/select>";
-	strVar += "                        <input type=\"text\" class=\"hp-f\" maxlength=\"10\" placeholder=\"휴대폰 번호를 입력해주세요\">";
-	strVar += "                    <\/div>";
-	strVar += "                    <div class=\"form-wrap-f\">";
-	strVar += "                        <div class=\"bloc\">";
-	strVar += "                            <input type=\"text\" class=\"form-f\" maxlength=\"10\" placeholder=\"생년월일을 입력해쥬세요\">";
-	strVar += "<\/div>";
-	strVar += "                        <div class=\"hint\"><small>EX : 911019<\/small><\/div>";
-	strVar += "                    <\/div>";
-	strVar += "                    <div class=\"form-wrap-f\">";
-	strVar += "                        <div class=\"hp\" style=\"float:left; width:100px\">";
-	strVar += "                            <input type=\"radio\" class=\"rad\" name=\"radioSex\" id=\"sex\" value=\"female\"> 여성";
-	strVar += "                            <\/div>";
-	strVar += "                            <div class=\"hp\" style=\"float:left; width:100px\">";
-	strVar += "                            <input type=\"radio\" class=\"rad\" name=\"radioSex\" id=\"sex\" value=\"male\"> 남성";
-	strVar += "                            <\/div>";
-	strVar += "                    <\/div>";
-	strVar += "                    <div class=\"form-wrap-f\">";
-	strVar += "                        <div class=\"bloc\">";
-	strVar += "                        <input type=\"text\" class=\"form-f\" maxlength=\"40\" placeholder=\"주소를 검색해주세요\">";
-	strVar += "                        <\/div>";
-	strVar += "                        <div class=\"hint\" style=\"width:30%\"><small>뀨?<\/small><\/div>";
-	    strVar += "                        <a href class=\"btn btn-default\" style=\"padding 10px; display:unset; float: right; height: 50px; border: 0; border-bottom: 1px solid #ccc; line-height:38px; padding-left:40px; padding-right:40px; color:#999\">주소 검색<\/a>";
-	strVar += "                    <\/div>";
-	strVar += "                    <div class=\"form-wrap-f\">";
-	strVar += "                        <div class=\"bloc\">";
-	strVar += "                        <input type=\"text\" class=\"form-f\" maxlength=\"40\" placeholder=\"상세 주소를 입력해주세요\">";
-	strVar += "                        <\/div>";
-	strVar += "                        <div class=\"hint\"><small><\/small><\/div>";
-	strVar += "                    <\/div>";
-	strVar += "";
-	strVar += "                    <input type=\"hidden\" id=\"agree\" value=\"y\">";
-	strVar += "                <\/form>";
-	$(".div-wrap-f").html(strVar);
-
-});
 
 </script>
 
