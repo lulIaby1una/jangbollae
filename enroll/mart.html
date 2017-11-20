@@ -121,21 +121,24 @@ function press(f){ if(f.keyCode == 13){ formname.submit(); } }
 					<div class="form-group">
 						<label for="inputMartImgs" class="col-sm-1 control-label"></label>
 							<div class="col-xs-6 col-md-3">
-								<a href="#" class="thumbnail">
-									<img id="inputMartImg1-pre" data-src="holder.js/100%x150px" alt="100%x100%" src="" data-holder-rendered="true" style="height: 150px; width: 100%; display: block;">
-									<input type="file" id="inputMartImg1">
+								<a href="#" class="thumbnail" style="position:relative">
+									<img id="inputMartImg1-pre" data-src="holder.js/100%x150px" alt="" src="" data-holder-rendered="true" style="height: 150px; width: 100%; display: block; position:relative; z-index:2;">
+									<span class="glyphicon glyphicon-plus" style="position:absolute; top:44%; left:48%; z-index:1;"></span>
+									<input type="file" id="inputMartImg1" style="display:none;" >
 								</a>
 							</div>
-							<div class="col-xs-6 col-md-3">
-								<a href="#" class="thumbnail">
-									<img id="inputMartImg2-pre" data-src="holder.js/100%x180" alt="100%x180" src="" data-holder-rendered="true" style="height: 180px; width: 100%; display: block;">
-									<input type="file" id="inputMartImg2">
+							<div class="col-xs-6 col-md-3 hid1" style="display:none;">
+								<a href="#" class="thumbnail" style="position:relative">
+									<img id="inputMartImg2-pre" data-src="holder.js/100%x180" alt="" src="" data-holder-rendered="true" style="height: 150px; width: 100%; display: block; position:relative; z-index:2;">
+									<span class="glyphicon glyphicon-plus" style="position:absolute; top:44%; left:48%; z-index:1;"></span>
+									<input type="file" id="inputMartImg2" style="display:none">
 								</a>
 							</div>
-							<div class="col-xs-6 col-md-3">
-								<a href="#" class="thumbnail">
-									<img id="inputMartImg3-pre" data-src="holder.js/100%x180" alt="100%x180" src="" data-holder-rendered="true" style="height: 180px; width: 100%; display: block;">
-									<input type="file" id="inputMartImg3">
+							<div class="col-xs-6 col-md-3 hid2" style="display:none;">
+								<a href="#" class="thumbnail" style="position:relative">
+									<img id="inputMartImg3-pre" data-src="holder.js/100%x180" alt="" src="" data-holder-rendered="true" style="height: 150px; width: 100%; display: block; position:relative; z-index:2;">
+									<span class="glyphicon glyphicon-plus" style="position:absolute; top:44%; left:48%; z-index:1;"></span>
+									<input type="file" id="inputMartImg3" style="display:none">
 								</a>
 							</div>
 					</div>
@@ -304,20 +307,20 @@ $(".signup-person").on("click", function(){
 $(".signup-mart").on("click", function(){
 		$("#martSignup-link").attr("href", "마트회원가입 URL");
 });
+</script>
 
-//http://greatps1215.tistory.com/5
-
+<script>
 var sel_file;
 var one = 1;
 var two = 2;
 var thr = 3;
 $(document).ready(function(){
-		$("#inputMartImg1").on("change",{paramNum:one}, hangleImgFileSelect);
-		$("#inputMartImg2").on("change",{paramNum:two}, hangleImgFileSelect);
-		$("#inputMartImg3").on("change",{paramNum:thr}, hangleImgFileSelect);
+		$("#inputMartImg1").on("change",{paramNum:one}, hangleImgFileSelect1);
+		$("#inputMartImg2").on("change",{paramNum:two}, hangleImgFileSelect2);
+		$("#inputMartImg3").on("change",{paramNum:thr}, hangleImgFileSelect3);
 		});
 
-function hangleImgFileSelect(e){
+function hangleImgFileSelect1(e){
 	var files = e.target.files;
 	var filesArr = Array.prototype.slice.call(files);
 
@@ -331,11 +334,70 @@ function hangleImgFileSelect(e){
 				var reader = new FileReader();
 				reader.onload = function(e){
 					$("#inputMartImg1-pre").attr("src", e.target.result);
+					$(".hid1").attr("style", "");
 					}
 					reader.readAsDataURL(f);
 				
 			});
 }
+function hangleImgFileSelect2(e){
+	var files = e.target.files;
+	var filesArr = Array.prototype.slice.call(files);
+
+	filesArr.forEach(function(f){
+				if(!f.type.match("image.*")){
+					alert("이미지만 업로드 가능합니다");
+					return;
+				}
+				sel_file = f;
+
+				var reader = new FileReader();
+				reader.onload = function(e){
+					$("#inputMartImg2-pre").attr("src", e.target.result);
+					$(".hid2").attr("style", "");
+					}
+					reader.readAsDataURL(f);
+				
+			});
+}
+function hangleImgFileSelect3(e){
+	var files = e.target.files;
+	var filesArr = Array.prototype.slice.call(files);
+
+	filesArr.forEach(function(f){
+				if(!f.type.match("image.*")){
+					alert("이미지만 업로드 가능합니다");
+					return;
+				}
+				sel_file = f;
+
+				var reader = new FileReader();
+				reader.onload = function(e){
+					$("#inputMartImg3-pre").attr("src", e.target.result);
+					}
+					reader.readAsDataURL(f);
+				
+			});
+}
+</script>
+<script>
+$(function(){
+		$("#inputMartImg1-pre").click(function(){
+				$('#inputMartImg1').trigger('click');
+			});
+		});
+$(function(){
+		$("#inputMartImg2-pre").click(function(){
+				$('#inputMartImg2').trigger('click');
+			});
+		});
+$(function(){
+		$("#inputMartImg3-pre").click(function(){
+				$('#inputMartImg3').trigger('click');
+			});
+		});
+
+
 </script>
 
 
