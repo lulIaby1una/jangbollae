@@ -118,30 +118,51 @@ function press(f){ if(f.keyCode == 13){ formname.submit(); } }
 							<input type="text" class="form-control" id="inputMartAddrDetail" placeholder="사업자 등록번호">
 						</div>
 					</div>
+					<div class="top-padding"></div>
 					<div class="form-group">
 						<label for="inputMartImgs" class="col-sm-1 control-label"></label>
 							<div class="col-xs-6 col-md-3">
 								<a href="#" class="thumbnail" style="position:relative">
-									<img id="inputMartImg1-pre" data-src="holder.js/100%x150px" alt="" src="" data-holder-rendered="true" style="height: 150px; width: 100%; display: block; position:relative; z-index:2;">
-									<span class="glyphicon glyphicon-plus" style="position:absolute; top:44%; left:48%; z-index:1;"></span>
+									<img id="inputMartImg1-pre" data-src="holder.js/100%x150px" alt=""  data-holder-rendered="true" style="height: 150px; width: 100%; display: block; position:relative; z-index:3;">
+									<span class="glyphicon glyphicon-plus" style="position:absolute; top:44%; left:48%; z-index:2;"></span>
+									<div id="i1d">
+										<span class="glyphicon glyphicon-remove" style="margin-left:48%; margin-top:5%;"></span>
+									</div>
 									<input type="file" id="inputMartImg1" style="display:none;" >
 								</a>
 							</div>
 							<div class="col-xs-6 col-md-3 hid1" style="display:none;">
 								<a href="#" class="thumbnail" style="position:relative">
-									<img id="inputMartImg2-pre" data-src="holder.js/100%x180" alt="" src="" data-holder-rendered="true" style="height: 150px; width: 100%; display: block; position:relative; z-index:2;">
-									<span class="glyphicon glyphicon-plus" style="position:absolute; top:44%; left:48%; z-index:1;"></span>
+									<img id="inputMartImg2-pre" data-src="holder.js/100%x180" alt="" data-holder-rendered="true" style="height: 150px; width: 100%; display: block; position:relative; z-index:3;">
+									<span class="glyphicon glyphicon-plus" style="position:absolute; top:44%; left:48%; z-index:2;"></span>
+									<div id="i2d">
+										<span class="glyphicon glyphicon-remove" style="margin-left:48%; margin-top:5%"></span>
+									</div>
 									<input type="file" id="inputMartImg2" style="display:none">
 								</a>
 							</div>
 							<div class="col-xs-6 col-md-3 hid2" style="display:none;">
 								<a href="#" class="thumbnail" style="position:relative">
-									<img id="inputMartImg3-pre" data-src="holder.js/100%x180" alt="" src="" data-holder-rendered="true" style="height: 150px; width: 100%; display: block; position:relative; z-index:2;">
-									<span class="glyphicon glyphicon-plus" style="position:absolute; top:44%; left:48%; z-index:1;"></span>
+									<img id="inputMartImg3-pre" data-src="holder.js/100%x180" alt="" data-holder-rendered="true" style="height: 150px; width: 100%; display: block; position:relative; z-index:3;">
+									<span class="glyphicon glyphicon-plus" style="position:absolute; top:44%; left:48%; z-index:2;"></span>
+									<div id="i3d">
+										<span class="glyphicon glyphicon-remove" style="margin-left:48%; margin-top:5%"></span>
+									</div>
 									<input type="file" id="inputMartImg3" style="display:none">
 								</a>
 							</div>
 					</div>
+					<div class="row" style="line-height:5px;">
+						<div class="col-sm-1"></div>
+						<div class="col-sm-10 small" style="color:#56B963">
+							<p>권장 크기: 1000 x 1000</P>
+							<p>추가이미지는 최대 3개까지 설정할 수 있습니다</p>
+							<p>jpg,jpeg,png,bmp 형식의 이미지만 등록됩니다</p>
+						</div>
+
+					</div>
+					<div class="top-padding"></div>
+					<div class="top-padding"></div>
 					<div class="form-group">
 						<div class="col-sm-offset-4 col-sm-2">
 							<button type="submit" class="btn btn-success">전단 등록</button>
@@ -334,6 +355,7 @@ function hangleImgFileSelect1(e){
 				var reader = new FileReader();
 				reader.onload = function(e){
 					$("#inputMartImg1-pre").attr("src", e.target.result);
+					$("#i1d").attr("style", "display:block");
 					$(".hid1").attr("style", "");
 					}
 					reader.readAsDataURL(f);
@@ -354,6 +376,7 @@ function hangleImgFileSelect2(e){
 				var reader = new FileReader();
 				reader.onload = function(e){
 					$("#inputMartImg2-pre").attr("src", e.target.result);
+					$("#i2d").attr("style", "display:block");
 					$(".hid2").attr("style", "");
 					}
 					reader.readAsDataURL(f);
@@ -374,6 +397,8 @@ function hangleImgFileSelect3(e){
 				var reader = new FileReader();
 				reader.onload = function(e){
 					$("#inputMartImg3-pre").attr("src", e.target.result);
+					$("#i3d").attr("style", "display:block");
+					$(".hid3").attr("style", "");
 					}
 					reader.readAsDataURL(f);
 				
@@ -399,7 +424,37 @@ $(function(){
 
 
 </script>
+<script>
+	$("#i1d").mouseenter(function(){
+		$("#i1d").attr("style","display:block; opacity:0.4; filter: alpha(opacity=40);");
+	}).mouseleave(function(){
+		$("#i1d").attr("style","display:block");
+	});
+	$("#i2d").mouseenter(function(){
+		$("#i2d").attr("style","display:block; opacity:0.4; filter: alpha(opacity=40);");
+	}).mouseleave(function(){
+		$("#i2d").attr("style","display:block");
+	});
+	$("#i3d").mouseenter(function(){
+		$("#i3d").attr("style","display:block; opacity:0.4; filter: alpha(opacity=40);");
+	}).mouseleave(function(){
+		$("#i3d").attr("style","display:block");
+	});
+</script>
 
+<script>
+$("#i1d").click(function(){
+	$("#inputMartImg1-pre").attr("src","");
+	$(".hid1").attr("style", "display:none");
+});
+$("#i2d").click(function(){
+	$("#inputMartImg2-pre").attr("src","");
+	$(".hid2").attr("style", "display:none");
+});
+$("#i3d").click(function(){
+	$("#inputMartImg3-pre").attr("src","");
+});
+</script>
 
 </body>
 </html>

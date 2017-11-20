@@ -401,3 +401,15 @@ body {
 .red {
 	color: red;
 }
+#i1d, #i2d, #i3d {
+	background-color: #111;
+	position: absolute;
+	width: 95%;
+	height: 30px;
+	z-index: 5;
+	top: 123px;
+	display:none;
+	opacity: 0.0;
+	filter: alpha(opacity=00);
+	/* For IE8 and earlier */
+}
