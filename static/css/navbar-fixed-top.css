@@ -413,3 +413,7 @@ body {
 	filter: alpha(opacity=00);
 	/* For IE8 and earlier */
 }
+
+.glyphicon-remove {
+	color:#fff !important;
+}
