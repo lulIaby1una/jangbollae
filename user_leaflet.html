@@ -93,7 +93,7 @@ function press(f){ if(f.keyCode == 13){ formname.submit(); } }
 			<div class="col-sm-3"></div>
 			<div class="col-sm-6">
 				<div>
-					<img src="http://www.seattlekcr.com/Pics/Art/%EB%A7%88%ED%8A%B8.jpg" id="midimg" class="landimg" data-toggle="modal" data-target="#fullimg">
+					<img src="http://hmnsh.mart25.co.kr/wp-content/uploads/sites/140/2012/10/하모니식자재마트시화2절전후면-0618.jpg" id="midimg" class="landimg" data-toggle="modal" data-target="#fullimg">
 				</div>
 			</div>
 		</div>
@@ -101,8 +101,8 @@ function press(f){ if(f.keyCode == 13){ formname.submit(); } }
 			<div class="col-sm-3"></div>
 			<div class="col-sm-6" style="text-align:center">
 				<div class="leaf-wrapper" style="display:inline-block">
-				<div class="leaf-preview" id="item1" style="background: url(http://img2.bizhows.com/01/temp_COMM_PAGE/201701/21/710/hjka/2017021131603556361014.JPG) 50% 50% no-repeat;"></div>
-				<div class="leaf-preview" id="item2" style="background: url(http://img2.bizhows.com/01/temp_COMM_PAGE/201701/21/710/hjka/2017021131603556361014.JPG) 50% 50% no-repeat;"></div>
+				<img class="leaf-preview item" src="http://img2.bizhows.com/01/temp_COMM_PAGE/201701/21/710/hjka/2017021131603556361014.JPG">
+				<img class="leaf-preview item" src="http://img2.bizhows.com/01/temp_COMM_PAGE/201701/21/710/hjka/2017021131603556361014.JPG">
 				</div>
 			</div>
 		</div>
@@ -135,9 +135,11 @@ function press(f){ if(f.keyCode == 13){ formname.submit(); } }
 </div>
 
 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="fullimg">
-	<div class="modal-dialog modal-lg">
+	<div class="modal-dialog modal-lg" style="width:88%">
 		<div class="modal-content">
+			<a href="#" id="linkimg">
 			<img src="" class="fullimg-wrapper">
+			</a>
 		</div>
 	</div>
 </div>
@@ -290,12 +292,16 @@ $(".signup-mart").on("click", function(){
 </script>
 
 <script>
-$("#item1").on("click", function(){
-		$("#midimg").attr("src", "http:\/\/img2.bizhows.com\/01\/temp_COMM_PAGE\/201701\/21\/710\/hjka\/2017021131603556361014.JPG");
+$(".item").on("click", function(){
+		var imgval = $(this).attr("src");
+		$("#midimg").attr("src", imgval);
+		$(".item").not($(this)).attr("style","");
+		$(this).attr("style","border: 3px solid black");
 		});
 $("#midimg").on("click", function(){
 		var imgval = $("#midimg").attr("src");
 		$(".fullimg-wrapper").attr("src", imgval);
+		$("#linkimg").attr("href",imgval);
 		});
 </script>
 

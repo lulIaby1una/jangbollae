@@ -84,7 +84,7 @@ function press(f){ if(f.keyCode == 13){ formname.submit(); } }
 </div>
 
 <!-- container -->
-<div class="container">
+<div class="container" style="min-height:1000px;">
 	<div class="top-padding"></div>
 	<div class="top-padding"></div>
 	<div class="row atag" style="height:100%">
@@ -547,7 +547,7 @@ $(".signup-mart").on("click", function(){
 <!-- id값 1씩 추가해서 변수로 셀렉터 바꾸시면 되용~-->
 $(".ebor").on({
 mouseenter: function () {
-	$(".ebor").attr("class", "row ebor-active");
+	$(this).attr("class", "row ebor-active");
 },
 mouseleave: function () {
 	$(".ebor-active").attr("class", "row ebor");
